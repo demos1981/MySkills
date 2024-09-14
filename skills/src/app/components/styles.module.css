@@ -1,0 +1,61 @@
+@media (min-width: 790px) {
+  .container > div > div {
+    display: flex;
+    height: initial;
+    align-items: center;
+    justify-content: center;
+    scrollbar-width: none;
+  }
+
+  .text {
+    padding-top: 200px;
+    pointer-events: none;
+    justify-content: start !important;
+    align-items: baseline !important;
+    font-family: "Kanit", sans-serif;
+    line-height: 0px;
+    text-transform: uppercase;
+  }
+
+  .number {
+    font-size: 100px;
+    color: #545864;
+  }
+
+  .number span {
+    display: inline-block;
+    position: relative;
+  }
+
+  .slopeBegin {
+    background-color: #20232f;
+    clip-path: polygon(20% 0, 70% 0, 50% 100%, 0% 100%);
+  }
+
+  .slopeEnd {
+    clip-path: polygon(70% 0, 100% 0, 80% 100%, 50% 100%);
+  }
+
+  .slopeBegin,
+  .slopeEnd {
+    position: absolute;
+    width: 170%;
+    height: 90%;
+    cursor: pointer;
+  }
+
+  .pink {
+    background: linear-gradient(to right, deeppink 0%, coral 100%);
+  }
+
+  .teal {
+    background: linear-gradient(to right, SlateBlue 0%, DeepSkyBlue 100%);
+  }
+
+  .tomato {
+    background: linear-gradient(to right, tomato 0%, gold 100%);
+  }
+}
+
+@media (max-width: 790px) {
+}

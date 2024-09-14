@@ -1,5 +1,11 @@
 import { FC } from "react";
+import { Metadata } from "next";
 
+export const metadata: Metadata = {
+  title: "My Education",
+  description: "All my education ",
+  keywords: "web developer education",
+};
 const Education: FC = () => {
   return (
     <div className="container mx-auto p-8">

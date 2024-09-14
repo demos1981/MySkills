@@ -2,7 +2,7 @@ import Link from "next/link";
 
 const Header: React.FC = () => {
   return (
-    <header className="bg-gray-800 text-white p-4">
+    <header className="bg-base-baseHeaderColor text-base-baseTextColorGrey p-4">
       <nav className="container mx-auto flex justify-between">
         <Link href="/" className="font-bold text-xl">
           Home

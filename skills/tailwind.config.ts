@@ -11,6 +11,12 @@ const config: Config = {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        base: {
+          baseOneLight: "#dfdfdf",
+          baseOneDark: "#1d1e20",
+          baseTextColorGrey: "#545864",
+          baseHeaderColor: "#313441",
+        },
       },
     },
   },

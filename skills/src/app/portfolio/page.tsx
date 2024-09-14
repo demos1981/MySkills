@@ -1,4 +1,11 @@
 import { FC } from "react";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "My Portfolio",
+  description: "All my work ",
+  keywords: "web developer portfolio",
+};
 
 const Portfolio: FC = () => {
   return (

@@ -1,10 +1,10 @@
 import { FC } from "react";
+import HeroSection from "./components/HeroSection";
 
 const Home: FC = () => {
   return (
-    <div className="container mx-auto p-8">
-      <h1 className="text-4xl font-bold mb-6">Home</h1>
-      <p>Home page</p>
+    <div className="container  ">
+      <HeroSection />
     </div>
   );
 };

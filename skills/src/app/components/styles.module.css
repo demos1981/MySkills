@@ -1,10 +1,13 @@
 @media (min-width: 790px) {
+  .container {
+    scrollbar-width: none;
+    max-height: 87vh;
+  }
   .container > div > div {
     display: flex;
     height: initial;
     align-items: center;
     justify-content: center;
-    scrollbar-width: none;
   }
 
   .text {
@@ -40,22 +43,26 @@
   .slopeEnd {
     position: absolute;
     width: 170%;
-    height: 90%;
+    height: 100%;
     cursor: pointer;
   }
 
   .pink {
-    background: linear-gradient(to right, deeppink 0%, coral 100%);
+    background: linear-gradient(to right, rgb(235, 226, 177) 30%, coral 100%);
   }
 
   .teal {
-    background: linear-gradient(to right, SlateBlue 0%, DeepSkyBlue 100%);
+    background: linear-gradient(
+      to right,
+      rgb(187, 219, 238) 30%,
+      DeepSkyBlue 100%
+    );
   }
 
   .tomato {
-    background: linear-gradient(to right, tomato 0%, gold 100%);
+    background: linear-gradient(to right, DeepSkyBlue 30%, gold 100%);
   }
 }
 
-@media (max-width: 790px) {
-}
+/* @media (max-width: 790px) {
+} */

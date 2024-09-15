@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { Metadata } from "next";
 export const metadata: Metadata = {
-  title: "My Contacts",
+  title: "Contacts",
   description: "All my contacts ",
   keywords: "web developer contacts",
 };

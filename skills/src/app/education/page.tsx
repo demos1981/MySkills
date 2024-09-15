@@ -2,7 +2,7 @@ import { FC } from "react";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "My Education",
+  title: "Education",
   description: "All my education ",
   keywords: "web developer education",
 };

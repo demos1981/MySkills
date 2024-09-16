@@ -1,6 +1,7 @@
 @media (min-width: 790px) {
   .container {
     scrollbar-width: none;
+
     max-height: 87vh;
     background-image: url(../assets/developer.jpg);
     background-repeat: no-repeat;

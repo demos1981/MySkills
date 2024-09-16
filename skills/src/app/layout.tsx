@@ -33,7 +33,7 @@ export default function RootLayout({
       >
         <div className={playpenSans.className}>
           <Header />
-          <div style={{ height: "87vh", color: "#545864" }}>{children}</div>
+          <div style={{ height: "86vh", color: "#545864" }}>{children}</div>
           <Footer />
         </div>
       </body>

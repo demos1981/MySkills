@@ -2,8 +2,8 @@ import Link from "next/link";
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-base-baseHeaderColor text-base-baseTextColorGrey p-4 ">
-      <nav className="container mx-auto flex justify-between">
+    <footer className="bg-base-baseHeaderColor text-base-baseTextColorGrey p-5 ">
+      <nav className="container mx-auto flex justify-between ">
         <span className="font-bold text-xl hover:text-base-newColor transition-all duration-500 cursor-pointer">
           Yaremenko Dmitriy
         </span>
@@ -24,7 +24,7 @@ const Footer: React.FC = () => {
             className="hover:text-base-newColor transition-all duration-500"
             href="#"
           >
-            Facebook
+            Telegram
           </Link>
         </div>
       </nav>

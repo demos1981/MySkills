@@ -16,6 +16,7 @@ const config: Config = {
           baseOneDark: "#1d1e20",
           baseTextColorGrey: "#545864",
           baseHeaderColor: "#313441",
+          newColor: "#08a3eb",
         },
       },
     },

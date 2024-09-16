@@ -2,6 +2,8 @@
   .container {
     scrollbar-width: none;
     max-height: 87vh;
+    background-image: url(../assets/developer.jpg);
+    background-repeat: no-repeat;
   }
   .container > div > div {
     display: flex;
@@ -11,17 +13,18 @@
   }
 
   .text {
-    padding-top: 200px;
+    padding-top: 290px;
+    padding-left: 100px;
     pointer-events: none;
     justify-content: start !important;
     align-items: baseline !important;
-    font-family: "Kanit", sans-serif;
+    font-family: "Playpen Sans", cursive;
     line-height: 0px;
     text-transform: uppercase;
   }
 
   .number {
-    font-size: 100px;
+    font-size: 5rem;
     color: #545864;
   }
 
@@ -31,38 +34,49 @@
   }
 
   .slopeBegin {
-    background-color: #20232f;
-    clip-path: polygon(20% 0, 70% 0, 50% 100%, 0% 100%);
+    background-color: transparent;
+    clip-path: polygon(68% 0, 100% 0%, 75% 100%, 41% 100%);
   }
 
   .slopeEnd {
-    clip-path: polygon(70% 0, 100% 0, 80% 100%, 50% 100%);
+    clip-path: polygon(68% 0, 100% 0%, 75% 100%, 41% 100%);
   }
 
   .slopeBegin,
   .slopeEnd {
     position: absolute;
-    width: 170%;
+    width: 100%;
     height: 100%;
     cursor: pointer;
   }
 
   .pink {
-    background: linear-gradient(to right, rgb(235, 226, 177) 30%, coral 100%);
+    /* background: linear-gradient(
+      to right,
+      rgb(248, 207, 174) 0%,
+      rgb(240, 102, 52) 100%
+    ); */
+    background: #313441;
   }
 
   .teal {
-    background: linear-gradient(
+    /* background: linear-gradient(
       to right,
-      rgb(187, 219, 238) 30%,
+      rgb(187, 219, 238) 0%,
       DeepSkyBlue 100%
-    );
+    ); */
+    background: #313441;
   }
 
   .tomato {
-    background: linear-gradient(to right, DeepSkyBlue 30%, gold 100%);
+    /* background: linear-gradient(
+      to right,
+      rgb(135, 233, 184) 0%,
+      rgb(4, 128, 66) 100%
+    ); */
+    background: #313441;
   }
 }
 
 /* @media (max-width: 790px) {
-} */
+  } */

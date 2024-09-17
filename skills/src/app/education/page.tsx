@@ -44,14 +44,14 @@ export const metadata: Metadata = {
 const Education: FC = () => {
   return (
     <>
-      <div>
-        <h1 className="flex justify-center text-4xl mt-8">EDUCATION</h1>
-        <section>
-          <div className="relative flex h-full w-full max-w-[32rem] items-center justify-center overflow-hidden rounded-lg  bg-background px-20 pb-20 pt-8 ">
-            <IconsRound iconSlugs={slugs} />
-          </div>
-        </section>
-      </div>
+      <h1 className="text-4xl font-bold ml-6 mt-6">Education</h1>
+
+      <div className="container mx-auto p-8"></div>
+      <section>
+        <div className="relative flex h-full w-full max-w-[32rem] items-center justify-center overflow-hidden rounded-lg  bg-background px-20 pb-20 pt-8 ">
+          <IconsRound iconSlugs={slugs} />
+        </div>
+      </section>
     </>
   );
 };

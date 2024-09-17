@@ -1,5 +1,6 @@
 import { FC } from "react";
 import { Metadata } from "next";
+import Forma from "../components/Form";
 export const metadata: Metadata = {
   title: "Contacts",
   description: "All my contacts ",
@@ -8,10 +9,12 @@ export const metadata: Metadata = {
 
 const Contacts: FC = () => {
   return (
-    <div className="container mx-auto p-8">
-      <h1 className="text-4xl font-bold mb-6">Contacts</h1>
-      <p>This is the contacts page.</p>
-    </div>
+    <>
+      <h1 className="text-4xl font-bold ml-6 mt-6">Contacts</h1>
+      <div className="container flex justify-between mx-auto p-8">
+        <Forma />
+      </div>
+    </>
   );
 };
 

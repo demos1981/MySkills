@@ -1,65 +1,26 @@
-import React from "react";
-// import { Formik, Form, Field } from "formik";
-// import * as Yup from "yup";
+"use client";
 
-// const SignupSchema = Yup.object().shape({
-//   firstName: Yup.string()
-//     .min(2, "Too Short!")
-//     .max(50, "Too Long!")
-//     .required("Required"),
-//   lastName: Yup.string()
-//     .min(2, "Too Short!")
-//     .max(50, "Too Long!")
-//     .required("Required"),
-//   email: Yup.string().email("Invalid email").required("Required"),
-// });
-// const Forma = () => {
-//   return (
-//     <>
-//       <div>
-//         <Formik
-//           initialValues={{
-//             firstName: "",
-//             lastName: "",
-//             email: "",
-//           }}
-//           validationSchema={SignupSchema}
-//           onSubmit={(values) => {
-//             // same shape as initial values
-//             console.log(values);
-//           }}
-//         >
-//           {({ errors, touched }) => (
-//             <Form>
-//               <Field name="firstName" />
-//               {errors.firstName && touched.firstName ? (
-//                 <div>{errors.firstName}</div>
-//               ) : null}
-//               <Field name="lastName" />
-//               {errors.lastName && touched.lastName ? (
-//                 <div>{errors.lastName}</div>
-//               ) : null}
-//               <Field name="email" type="email" />
-//               {errors.email && touched.email ? <div>{errors.email}</div> : null}
-//               <button type="submit">Submit</button>
-//             </Form>
-//           )}
-//         </Formik>
-//       </div>
-//     </>
-//   );
-// };
+import React from "react";
+import { useForm, SubmitHandler } from "react-hook-form";
+
+interface IFormInput {
+  firstName: string;
+  lastName: string;
+  email: string;
+}
 
 const Form = () => {
+  const { register, handleSubmit } = useForm<IFormInput>();
+  const onSubmit: SubmitHandler<IFormInput> = (data) => console.log(data);
   return (
-    <form className="max-w-96">
+    <form onSubmit={handleSubmit(onSubmit)} className="max-w-96">
       <div className="space-y-12">
         <div className="border-b border-gray-900/10 pb-12">
           <h2 className="text-base font-semibold leading-7 text-gray-900">
             Personal Information
           </h2>
           <p className="mt-1 text-sm leading-6 text-gray-600">
-            Use a permanent address where you can receive mail.
+            Enter your details and I'll be sure to get back to you shortly.
           </p>
 
           <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
@@ -73,10 +34,10 @@ const Form = () => {
               <div className="mt-2">
                 <input
                   id="first-name"
-                  name="first-name"
                   type="text"
                   autoComplete="given-name"
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  {...register("firstName", { required: true, maxLength: 20 })}
                 />
               </div>
             </div>
@@ -91,10 +52,10 @@ const Form = () => {
               <div className="mt-2">
                 <input
                   id="last-name"
-                  name="last-name"
                   type="text"
                   autoComplete="family-name"
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  {...register("lastName", { pattern: /^[A-Za-z]+$/i })}
                 />
               </div>
             </div>
@@ -109,10 +70,13 @@ const Form = () => {
               <div className="mt-2">
                 <input
                   id="email"
-                  name="email"
                   type="email"
                   autoComplete="email"
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  {...register("email", {
+                    pattern:
+                      /^(|(([A-Za-z0-9]+_+)|([A-Za-z0-9]+\-+)|([A-Za-z0-9]+\.+)|([A-Za-z0-9]+\++))*[A-Za-z0-9]+@((\w+\-+)|(\w+\.))*\w{1,63}\.[a-zA-Z]{2,6})$/i,
+                  })}
                 />
               </div>
             </div>

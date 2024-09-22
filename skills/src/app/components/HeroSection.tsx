@@ -1,9 +1,8 @@
 "use client";
 
-
 import React, { useRef } from "react";
 import { Parallax, ParallaxLayer, IParallax } from "@react-spring/parallax";
-import styles from "./styles.module.css";
+import styles from "./HeroSection.module.css";
 
 interface PageProps {
   offset: number;

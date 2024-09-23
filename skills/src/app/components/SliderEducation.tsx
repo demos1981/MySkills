@@ -1,20 +1,15 @@
 import React from "react";
+import styles from "./SliderEducation.module.css";
 
 const SliderEducation: React.FC = () => {
   return (
     <div className="flex flex-row justify-center items-center  p-6 ">
-      <div className=" slideItem relative  block-item bg-blue-500 w-32 h-64 text-white text-center flex items-center justify-center ">
-        Block 1
+      <div className={styles.slideItem}>
+        <span className={styles.nameItem}> Block 1</span>
       </div>
-      <div className=" slideItem relative  block-item bg-green-500 w-32 h-64 text-white text-center flex items-center justify-center  mx-1 ">
-        Block 2
-      </div>
-      <div className=" slideItem relative  block-item bg-red-500 w-32 h-64 text-white text-center flex items-center justify-center  mx-1 ">
-        Block 3
-      </div>
-      <div className=" slideItem relative  block-item bg-yellow-500 w-32 h-64 text-white text-center flex items-center justify-center mx-1">
-        Block 4
-      </div>
+      <div className={styles.slideItem}>Block 2</div>
+      <div className={styles.slideItem}>Block 3</div>
+      <div className={styles.slideItem}>Block 4</div>
     </div>
   );
 };

@@ -11,30 +11,23 @@
   margin-right: 0.25rem;
   transition-duration: 5s;
   opacity: 0.1;
+  border: solid 1px grey;
 }
-/* .nameItem {
-  display: inline-block;
-  position: relative;
-  top: 10rem;
-  width: 40px;
-  height: 20px;
-  background-color: blueviolet;
-  opacity: 1;
-  z-index: 10000;
-} */
 
 .slideItem:hover {
-  background-color: rgb(189, 44, 141);
+  opacity: 0.1;
+
   animation: backgroundUp 2s linear alternate forwards;
 }
 
 .slideItem {
-  animation: reverseFill 0.5s ease-in-out reverse forwards;
+  animation: reverseFill 2s linear reverse forwards;
 }
+
 @keyframes backgroundUp {
   from {
     background-color: rgb(59 130 246);
-    opacity: 0;
+    opacity: 0.1;
     height: 5%;
   }
   10% {

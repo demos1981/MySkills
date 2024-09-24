@@ -21,7 +21,7 @@ const Education: FC = () => {
             <IconsRound iconSlugs={slugs} />
           </div>
         </section>
-        <section className="container flex justify-end">
+        <section className="container flex justify-end flex-wrap">
           <SliderEducation />
         </section>
       </main>

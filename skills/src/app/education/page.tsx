@@ -5,6 +5,7 @@ import IconsRound from "../components/IconsRound";
 import SliderEducation from "../components/SliderEducation";
 
 import { slugs } from "../components/data/dataEducation";
+import BlurText from "../components/BlurText";
 export const metadata: Metadata = {
   title: "Education",
   description: "All my education ",
@@ -25,6 +26,11 @@ const Education: FC = () => {
           <SliderEducation />
         </section>
       </main>
+      <BlurText
+        text="Its all about my education, come and reading. "
+        className="custom-class text-base-baseHeaderColor ml-7"
+        delay={300}
+      />
     </>
   );
 };

@@ -42,6 +42,7 @@ function HeroSection() {
   };
 
   return (
+    // <div className="relative z-30">
     <div style={{ background: "#dfdfdf" }}>
       <Parallax
         className={styles.container}
@@ -70,6 +71,7 @@ function HeroSection() {
         />
       </Parallax>
     </div>
+    // </div>
   );
 }
 

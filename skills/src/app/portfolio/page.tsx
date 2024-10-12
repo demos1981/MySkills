@@ -1,5 +1,6 @@
 import { FC } from "react";
 import { Metadata } from "next";
+import Slider from "../components/Slider";
 
 export const metadata: Metadata = {
   title: "Portfolio",
@@ -9,10 +10,9 @@ export const metadata: Metadata = {
 
 const Portfolio: FC = () => {
   return (
-    <div className="container mx-auto p-8">
-      <h1 className="text-4xl font-bold mb-6">Portfolio</h1>
-      <p>This is the portfolio page.</p>
-    </div>
+    <>
+      <Slider />
+    </>
   );
 };
 

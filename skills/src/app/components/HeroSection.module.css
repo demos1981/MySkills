@@ -1,0 +1,88 @@
+@media (min-width: 790px) {
+  .container {
+    position: relative;
+    z-index: 50;
+    scrollbar-width: none;
+
+    max-height: 87vh;
+    /* background-image: url(../assets/developer.jpg); */
+    background-color: transparent;
+    /* background-repeat: no-repeat; */
+  }
+  .container > div > div {
+    display: flex;
+    height: initial;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .text {
+    padding-top: 290px;
+    padding-left: 90px;
+    pointer-events: none;
+    justify-content: start !important;
+    align-items: baseline !important;
+    font-family: "Playpen Sans", cursive;
+    line-height: 0px;
+    text-transform: uppercase;
+  }
+
+  .number {
+    position: absolute;
+    font-size: 5rem;
+    color: #545864;
+  }
+
+  .number span {
+    display: inline-block;
+    position: relative;
+  }
+
+  .slopeBegin {
+    background-color: transparent;
+    clip-path: polygon(68% 0, 100% 0%, 75% 100%, 41% 100%);
+  }
+
+  .slopeEnd {
+    clip-path: polygon(68% 0, 100% 0%, 75% 100%, 41% 100%);
+  }
+
+  .slopeBegin,
+  .slopeEnd {
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+  }
+
+  .pink {
+    position: relative;
+
+    /* background: linear-gradient(
+      to right,
+      rgb(248, 207, 174) 0%,
+      rgb(240, 102, 52) 100%
+    ); */
+    background: #313441;
+  }
+
+  .teal {
+    /* background: linear-gradient(
+      to right,
+      rgb(187, 219, 238) 0%,
+      DeepSkyBlue 100%
+    ); */
+    background: #313441;
+  }
+
+  .tomato {
+    /* background: linear-gradient(
+      to right,
+      rgb(135, 233, 184) 0%,
+      rgb(4, 128, 66) 100%
+    ); */
+    background: #313441;
+  }
+}
+
+/* @media (max-width: 790px) {
+  } */

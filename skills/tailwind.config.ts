@@ -16,10 +16,13 @@ const config: Config = {
           baseOneDark: "#1d1e20",
           baseTextColorGrey: "#545864",
           baseHeaderColor: "#313441",
+          baseHeaderTextColor: "#c850c0",
+          newColor: "#08a3eb",
+          bgHomePage: "#12071f",
         },
       },
     },
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/forms")],
 };
 export default config;

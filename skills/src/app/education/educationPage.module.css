@@ -1,0 +1,9 @@
+.educationPage {
+  background-image: url(../assets/education.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: row;
+
+  box-sizing: border-box;
+}

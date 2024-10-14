@@ -20,7 +20,7 @@ export const slides = [
     id: 4,
     title: "Node.js",
     content: "Hillel ITSchool",
-    text: "Server Creation. Working with databases. REST API. EXPRESS.JS",
+    text: "Server Creation. Working with Databases. REST API. EXPRESS.JS",
     url: "https://certificate.ithillel.ua/view/57146233",
   },
 ];

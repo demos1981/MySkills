@@ -3,12 +3,7 @@
 import React from "react";
 import { useRef, useEffect, useState } from "react";
 import { useSprings, animated } from "@react-spring/web";
-
-type BlurTextType = {
-  text: string;
-  delay?: number;
-  className: string;
-};
+import { BlurTextType } from "@/types/componentsTypes";
 
 export const BlurText = ({
   text,

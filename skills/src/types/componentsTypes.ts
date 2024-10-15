@@ -1,3 +1,9 @@
+export type BlurTextType = {
+  text: string;
+  delay?: number;
+  className: string;
+};
+
 export interface CarouselItem {
   id: number;
   content: string;

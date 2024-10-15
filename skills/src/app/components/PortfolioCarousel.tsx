@@ -1,72 +1,77 @@
 "use client";
 
-import React from "react";
-import { EmblaOptionsType } from "embla-carousel";
-import useEmblaCarousel from "embla-carousel-react";
-import ClassNames from "embla-carousel-class-names";
+import { useState } from "react";
 import "../components/PortfolioCarousel.module.css";
-import {
-  NextButton,
-  PrevButton,
-  usePrevNextButtons,
-} from "./PortfolioCarouselArrowButton";
-import { DotButton, useDotButton } from "./PortfolioCarouselDotButton";
-import Image from "next/image";
 
-type PropType = {
-  slides: number[];
-  options?: EmblaOptionsType;
-};
+interface CarouselItem {
+  id: number;
+  content: string;
+}
 
-const PortfolioCarousel: React.FC<PropType> = (props) => {
-  const { slides, options } = props;
-  const [emblaRef, emblaApi] = useEmblaCarousel(options, [ClassNames()]);
+const items: CarouselItem[] = [
+  { id: 1, content: "Item 1" },
+  { id: 2, content: "Item 2" },
+  { id: 3, content: "Item 3" },
+  { id: 4, content: "Item 4" },
+  { id: 5, content: "Item 5" },
+];
 
-  const { selectedIndex, scrollSnaps, onDotButtonClick } =
-    useDotButton(emblaApi);
+const PortfolioCarousel: React.FC = () => {
+  const [activeIndex, setActiveIndex] = useState(1); // Start with the second element as the center
 
-  const {
-    prevBtnDisabled,
-    nextBtnDisabled,
-    onPrevButtonClick,
-    onNextButtonClick,
-  } = usePrevNextButtons(emblaApi);
+  const nextItem = () => {
+    setActiveIndex((prevIndex) => (prevIndex + 1) % items.length);
+  };
+
+  const prevItem = () => {
+    setActiveIndex(
+      (prevIndex) => (prevIndex - 1 + items.length) % items.length
+    );
+  };
+
+  const getClassName = (index: number) => {
+    const length = items.length;
+    const position = (index - activeIndex + length) % length;
+
+    if (position === 1) {
+      // Center element
+      return "w-64 h-64 transform scale-110 reflection";
+    } else if (position === 0 || position === 2) {
+      // Side elements
+      return "w-40 h-40 opacity-75";
+    } else {
+      // Hide other elements
+      return "hidden";
+    }
+  };
 
   return (
-    <div className="embla">
-      <div className="embla__viewport" ref={emblaRef}>
-        <div className="embla__container">
-          {slides.map((index) => (
-            <div className="embla__slide embla__class-names" key={index}>
-              <Image
-                className="embla__slide__img"
-                width={300}
-                height={150}
-                src={`https://picsum.photos/600/350?v=${index}`}
-                alt="Your alt text"
-              />
-            </div>
-          ))}
-        </div>
+    <div className="flex flex-col items-center justify-center h-screen space-y-6">
+      <div className="flex items-center space-x-4">
+        {items.map((item, index) => (
+          <div
+            key={item.id}
+            className={`flex-shrink-0 rounded-lg bg-blue-500 text-white flex items-center justify-center transition-all duration-300 ${getClassName(
+              index
+            )}`}
+          >
+            {item.content}
+          </div>
+        ))}
       </div>
-
-      <div className="embla__controls">
-        <div className="embla__buttons">
-          <PrevButton onClick={onPrevButtonClick} disabled={prevBtnDisabled} />
-          <NextButton onClick={onNextButtonClick} disabled={nextBtnDisabled} />
-        </div>
-
-        <div className="embla__dots">
-          {scrollSnaps.map((_, index) => (
-            <DotButton
-              key={index}
-              onClick={() => onDotButtonClick(index)}
-              className={"embla__dot".concat(
-                index === selectedIndex ? " embla__dot--selected" : ""
-              )}
-            />
-          ))}
-        </div>
+      <div className="flex space-x-4">
+        <button
+          onClick={prevItem}
+          className="px-4 py-2 bg-gray-800 text-white rounded"
+        >
+          Previous
+        </button>
+        <button
+          onClick={nextItem}
+          className="px-4 py-2 bg-gray-800 text-white rounded"
+        >
+          Next
+        </button>
       </div>
     </div>
   );

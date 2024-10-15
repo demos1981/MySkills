@@ -1,7 +1,7 @@
 import React from "react";
 import BlurText from "./BlurText";
 import styles from "./SliderEducation.module.css";
-import { slides } from "../../data/slides";
+import { slides } from "../../data/dataSlides";
 import Link from "next/link";
 
 const SliderEducation: React.FC = () => {

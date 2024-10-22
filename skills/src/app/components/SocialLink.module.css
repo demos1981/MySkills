@@ -1,0 +1,10 @@
+.socialLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+  height: 200px;
+  background-color: aqua;
+  margin-left: 5px;
+  border-radius: 20% 20% 3% 3%;
+}

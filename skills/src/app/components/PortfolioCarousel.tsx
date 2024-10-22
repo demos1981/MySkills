@@ -40,7 +40,7 @@ const PortfolioCarousel: React.FC = () => {
         className="flex flex-col items-center justify-center h-screen space-y-6 transition-all duration-300"
         style={{
           background: `rgba(0, 0, 255, 0.5)`, // Optional default background
-          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/images/${activeContent}.jpg')`,
+          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('public/assets/${activeContent}.png')`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}

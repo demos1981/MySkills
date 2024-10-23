@@ -33,14 +33,14 @@ const PortfolioCarousel: React.FC = () => {
     }
   };
 
-  const activeContent = items[activeIndex]?.content || "";
+  const activeImage = items[activeIndex]?.image || "";
   return (
     <>
       <div
         className="flex flex-col items-center justify-center h-screen space-y-6 transition-all duration-300"
         style={{
           background: `rgba(0, 0, 255, 0.5)`, // Optional default background
-          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('public/assets/${activeContent}.png')`,
+          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${activeImage})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
@@ -52,6 +52,11 @@ const PortfolioCarousel: React.FC = () => {
               className={`flex-shrink-0 rounded-lg bg-blue-500 text-white flex items-center justify-center transition-all duration-300 ${getClassName(
                 index
               )}`}
+              style={{
+                backgroundImage: `url(${item.image})`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+              }}
             >
               <div className="flex flex-col">
                 <div>{item.content}</div>

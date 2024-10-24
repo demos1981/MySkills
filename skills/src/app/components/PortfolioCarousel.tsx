@@ -2,85 +2,99 @@
 
 import { useState } from "react";
 import { items } from "@/data/dataPortfolio";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import "../components/PortfolioCarousel.module.css";
+import Image from "next/image";
 
 const PortfolioCarousel: React.FC = () => {
-  const [activeIndex, setActiveIndex] = useState(1); // Start with the second element as the center
+  const [activeIndex, setActiveIndex] = useState(1);
 
-  const nextItem = () => {
-    setActiveIndex((prevIndex) => (prevIndex + 1) % items.length);
+  const handleNext = () => {
+    setActiveIndex((prev) => (prev + 1) % items.length);
   };
 
-  const prevItem = () => {
-    setActiveIndex(
-      (prevIndex) => (prevIndex - 1 + items.length) % items.length
-    );
+  const handlePrev = () => {
+    setActiveIndex((prev) => (prev - 1 + items.length) % items.length);
   };
 
-  const getClassName = (index: number) => {
-    const length = items.length;
-    const position = (index - activeIndex + length) % length;
-
-    if (position === 1) {
-      // Center element
-      return "w-64 h-64 transform scale-110 reflection";
-    } else if (position === 0 || position === 2) {
-      // Side elements
-      return "w-40 h-40 opacity-75";
-    } else {
-      // Hide other elements
-      return "hidden";
+  const getVisibleItems = () => {
+    const visibleItems = [];
+    for (let i = -1; i <= 1; i++) {
+      const index = (activeIndex + i + items.length) % items.length;
+      visibleItems.push(items[index]);
     }
+    return visibleItems;
   };
 
-  const activeImage = items[activeIndex]?.image || "";
+  const activeItem = items[activeIndex];
+
   return (
-    <>
+    <div className="relative w-full  mx-auto h-full overflow-hidden">
+      {/* Blurred background */}
       <div
-        className="flex flex-col items-center justify-center h-screen space-y-6 transition-all duration-300"
+        className="absolute inset-0 transition-all duration-700 ease-in-out"
         style={{
-          background: `rgba(0, 0, 255, 0.5)`, // Optional default background
-          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${activeImage})`,
+          backgroundImage: `url(${activeItem.image})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
+          filter: "blur(12px) brightness(0.7)",
+          transition: "all 0.2s linear",
+          transform: "scale(1)", // Prevent blur edges from showing
         }}
+      />
+
+      {/* Navigation buttons */}
+      <button
+        onClick={handlePrev}
+        className="absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-white/80 p-2 rounded-full shadow-lg hover:bg-white transition-colors"
       >
-        <div className="flex items-center space-x-4 h-2/4">
-          {items.map((item, index) => (
+        <ChevronLeft className="w-6 h-6" />
+      </button>
+      <button
+        onClick={handleNext}
+        className="absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-white/80 p-2 rounded-full shadow-lg hover:bg-white transition-colors"
+      >
+        <ChevronRight className="w-6 h-6" />
+      </button>
+
+      {/* Carousel items */}
+      <div className="relative h-full flex items-center justify-center">
+        {getVisibleItems().map((item, index) => (
+          <div
+            key={item.id}
+            className={`absolute transition-all duration-500 ease-in-out
+            ${index === 0 ? "translate-x-[-120%] scale-75 opacity-70" : ""}
+            ${index === 1 ? "translate-x-0 scale-100 z-20" : ""}
+            ${index === 2 ? "translate-x-[120%] scale-75 opacity-70" : ""}
+          `}
+          >
+            {/* Card */}
             <div
-              key={item.id}
-              className={`flex-shrink-0 rounded-lg bg-blue-500 text-white flex items-center justify-center transition-all duration-300 ${getClassName(
-                index
-              )}`}
-              style={{
-                backgroundImage: `url(${item.image})`,
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-              }}
+              className="w-64 h-80 rounded-lg shadow-xl overflow-hidden transform transition-transform hover:scale-105"
+              onClick={() =>
+                setActiveIndex(
+                  (activeIndex + index - 1 + items.length) % items.length
+                )
+              }
             >
-              <div className="flex flex-col">
-                <div>{item.content}</div>
-                <div>{item.stack}</div>
+              <Image
+                src={item.image}
+                width={300}
+                height={300}
+                alt={item.stack}
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6">
+                <h3 className="text-xl font-bold text-white mb-2">
+                  {item.stack}
+                </h3>
+                <p className="text-white/90">{item.content}</p>
               </div>
             </div>
-          ))}
-        </div>
-        <div className="flex space-x-4 relative top-11">
-          <button
-            onClick={prevItem}
-            className="px-4 py-2 bg-gray-800 text-white rounded"
-          >
-            Previous
-          </button>
-          <button
-            onClick={nextItem}
-            className="px-4 py-2 bg-gray-800 text-white rounded"
-          >
-            Next
-          </button>
-        </div>
+          </div>
+        ))}
       </div>
-    </>
+    </div>
   );
 };
 

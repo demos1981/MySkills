@@ -5,18 +5,18 @@ export const items: CarouselItem[] = [
     id: 1,
     content: "Project 1",
     stack: "Technology Stack-",
-    image: "/assets/education.svg",
+    image: "/assets/1.jpg",
   },
   {
     id: 2,
     content: "Project 2",
     stack: "Technology Stack-",
-    image: "/assets/front_start.svg",
+    image: "/assets/2.jpg",
   },
   {
     id: 3,
     content: "Project 3",
     stack: "Technology Stack-",
-    image: "/assets/frontend.svg",
+    image: "/assets/3.jpg",
   },
 ];

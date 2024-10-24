@@ -3,7 +3,6 @@
 import { useState } from "react";
 import { items } from "@/data/dataPortfolio";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import "../components/PortfolioCarousel.module.css";
 import Image from "next/image";
 
 const PortfolioCarousel: React.FC = () => {

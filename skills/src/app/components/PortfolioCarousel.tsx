@@ -32,14 +32,14 @@ const PortfolioCarousel: React.FC = () => {
     <div className="relative w-full  mx-auto h-full overflow-hidden">
       {/* Blurred background */}
       <div
-        className="absolute inset-0 transition-all duration-700 ease-in-out"
+        className="absolute inset-0 transition-all duration-300 ease-linear"
         style={{
           backgroundImage: `url(${activeItem.image})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
-          filter: "blur(12px) brightness(0.7)",
-          transition: "all 0.2s linear",
-          transform: "scale(1)", // Prevent blur edges from showing
+          filter: "blur(9px) brightness(0.9)",
+
+          transform: "scale(1.1)", // Prevent blur edges from showing
         }}
       />
 

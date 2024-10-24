@@ -2,7 +2,7 @@ import Link from "next/link";
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-base-baseHeaderColor text-base-baseTextColorGrey p-4 mt-1 relative z-50">
+    <footer className="bg-base-baseHeaderColor text-base-baseTextColorGrey p-5  relative z-50">
       <nav className="container mx-auto flex justify-between ">
         <span className="font-bold text-xl hover:text-base-baseHeaderTextColor transition-all duration-500 cursor-pointer">
           Yaremenko Dmitriy

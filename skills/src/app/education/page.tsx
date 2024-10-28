@@ -26,7 +26,7 @@ const Education: FC = () => {
         {/* <section className="container flex justify-center mx-auto p-10">
           <PictureEducation />
         </section> */}
-        <section className="container flex justify-end flex-wrap">
+        <section className="container flex justify-end flex-wrap mr-72">
           <SliderEducation />
         </section>
       </main>

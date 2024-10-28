@@ -89,20 +89,6 @@ const PortfolioCarousel: React.FC = () => {
         }}
       />
 
-      {/* Navigation buttons */}
-      <button
-        onClick={handlePrev}
-        className="absolute left-36 top-1/2 -translate-y-1/2 z-10 bg-white/80 p-2 rounded-full shadow-lg hover:bg-white transition-colors"
-      >
-        <ChevronLeft className="w-6 h-6" />
-      </button>
-      <button
-        onClick={handleNext}
-        className="absolute right-36 top-1/2 -translate-y-1/2 z-10 bg-white/80 p-2 rounded-full shadow-lg hover:bg-white transition-colors"
-      >
-        <ChevronRight className="w-6 h-6" />
-      </button>
-
       {/* Carousel items */}
       <div className="relative h-full flex  justify-center">
         {getVisibleItems().map((item, index) => (
@@ -139,6 +125,19 @@ const PortfolioCarousel: React.FC = () => {
             </div>
           </div>
         ))}
+        {/* Navigation buttons */}
+        <button
+          onClick={handlePrev}
+          className="absolute left-1/3 top-1/2 -translate-y-1/2 z-10 bg-white/80 p-2 rounded-full shadow-lg hover:bg-white transition-colors"
+        >
+          <ChevronLeft className="w-6 h-6" />
+        </button>
+        <button
+          onClick={handleNext}
+          className="absolute right-1/3 top-1/2 -translate-y-1/2 z-10 bg-white/80 p-2 rounded-full shadow-lg hover:bg-white transition-colors"
+        >
+          <ChevronRight className="w-6 h-6" />
+        </button>
       </div>
     </div>
   );

@@ -9,4 +9,7 @@ export interface CarouselItem {
   content: string;
   stack: string;
   image: string;
+  shortDescription: string;
+  fullDescription: string;
+  features: string[];
 }

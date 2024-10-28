@@ -1,6 +1,3 @@
-// import frontStart from "../assets/front_start.svg";
-// import frontPro from "../assets/frontend.svg";
-
 export const slides = [
   {
     id: 2,

@@ -44,7 +44,7 @@ export const BlurText = ({
               filter: "blur(5px)",
               opacity: 0.5,
               transform: "translate3d(0,5px,0)",
-              color: "#c850c0",
+              // color: "#c850c0",
             });
             await next({
               filter: "blur(0px)",

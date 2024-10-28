@@ -4,16 +4,24 @@ import { useState } from "react";
 import { items } from "@/data/dataPortfolio";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import Image from "next/image";
+import BlurText from "./BlurText";
 
 const PortfolioCarousel: React.FC = () => {
   const [activeIndex, setActiveIndex] = useState(1);
+  const [isTransitioning, setIsTransitioning] = useState(false);
 
   const handleNext = () => {
+    if (isTransitioning) return;
+    setIsTransitioning(true);
     setActiveIndex((prev) => (prev + 1) % items.length);
+    setTimeout(() => setIsTransitioning(false), 500);
   };
 
   const handlePrev = () => {
+    if (isTransitioning) return;
+    setIsTransitioning(true);
     setActiveIndex((prev) => (prev - 1 + items.length) % items.length);
+    setTimeout(() => setIsTransitioning(false), 500);
   };
 
   const getVisibleItems = () => {
@@ -29,6 +37,45 @@ const PortfolioCarousel: React.FC = () => {
 
   return (
     <div className="relative w-full  mx-auto h-full overflow-hidden">
+      <div className="mb-8">
+        <div className="overflow-hidden">
+          <div
+            className={`transition-opacity duration-500 ${
+              isTransitioning ? "opacity-0" : "opacity-100"
+            }`}
+          >
+            <h3 className="relative text-3xl font-bold mb-4 z-20 ">
+              <BlurText
+                text={activeItem.content}
+                className="text-slate-100"
+                delay={200}
+              />
+            </h3>
+            <p className="relative text-lg w-96 mb-6 z-20">
+              <BlurText
+                text={activeItem.shortDescription}
+                className="text-slate-100"
+                delay={200}
+              />
+              <BlurText
+                text={activeItem.fullDescription}
+                className="text-slate-100"
+                delay={200}
+              />
+            </p>
+            <div className="flex gap-4 mb-6">
+              {activeItem.features.map((feature, index) => (
+                <span
+                  key={index}
+                  className="relative z-20 bg-gray-100 px-4 py-2 rounded-full text-sm font-medium text-gray-700"
+                >
+                  {feature}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
       {/* Blurred background */}
       <div
         className="absolute inset-0 transition-all duration-300 ease-linear"
@@ -45,19 +92,19 @@ const PortfolioCarousel: React.FC = () => {
       {/* Navigation buttons */}
       <button
         onClick={handlePrev}
-        className="absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-white/80 p-2 rounded-full shadow-lg hover:bg-white transition-colors"
+        className="absolute left-36 top-1/2 -translate-y-1/2 z-10 bg-white/80 p-2 rounded-full shadow-lg hover:bg-white transition-colors"
       >
         <ChevronLeft className="w-6 h-6" />
       </button>
       <button
         onClick={handleNext}
-        className="absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-white/80 p-2 rounded-full shadow-lg hover:bg-white transition-colors"
+        className="absolute right-36 top-1/2 -translate-y-1/2 z-10 bg-white/80 p-2 rounded-full shadow-lg hover:bg-white transition-colors"
       >
         <ChevronRight className="w-6 h-6" />
       </button>
 
       {/* Carousel items */}
-      <div className="relative h-full flex items-center justify-center">
+      <div className="relative h-full flex  justify-center">
         {getVisibleItems().map((item, index) => (
           <div
             key={item.id}

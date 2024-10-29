@@ -1,8 +1,8 @@
 import { FC } from "react";
 import { Metadata } from "next";
-import IconsRound from "../components/IconsRound";
+import IconsRound from "../../components/IconsRound";
 import styles from "./educationPage.module.css";
-import SliderEducation from "../components/SliderEducation";
+import SliderEducation from "../../components/SliderEducation";
 
 import { slugs } from "../../data/dataEducation";
 

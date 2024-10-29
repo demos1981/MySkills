@@ -2,7 +2,7 @@ import { FC } from "react";
 
 import { Metadata } from "next";
 
-import PortfolioCarousel from "../components/PortfolioCarousel";
+import PortfolioCarousel from "../../components/PortfolioCarousel";
 
 export const metadata: Metadata = {
   title: "Portfolio",

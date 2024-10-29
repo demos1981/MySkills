@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { Metadata } from "next";
-import Forma from "../components/Form";
-import SocialLink from "../components/SocialLink";
+import Forma from "../../components/Form";
+import SocialLink from "../../components/SocialLink";
 export const metadata: Metadata = {
   title: "Contacts",
   description: "All my contacts ",
